@@ -17,17 +17,14 @@ const getProduct = async (req, res) => {
 const createProduct= async (req, res) => {
    try {
     const {name,price,description} = req.body;
-    console.log("req-file",req.file)
+    
     const img= req.file.path
-    console.log("req-file",req.file)
-    //? req.file.filename || req.file.path :null; // Constructing the full path
+  
     const product = new productModel({
         name,
         price,
         description,
-img
-        
-         // Added to include uploaded file information
+        img
     });
 
     await product.save();
